@@ -5,6 +5,7 @@ import ModalDialog from "../main/Modal-dialog";
 import TasksList from "./Tasks-list";
 import {db} from "../../services/Database";
 import Header from "./Header";
+import Logout from "./Logout";
 
 export default class ToDoLists extends React.Component {
 
@@ -98,9 +99,12 @@ export default class ToDoLists extends React.Component {
         const {tasks, taskName, loader, openModal, isDuplicateName} = this.state
         return (
             <div className="to-do">
+                <Logout/>
                 <Header/>
                 <Loader loader={loader}/>
-                <TasksList tasks={tasks} loader={loader} onDelete={this.deleteHandler} onChecked={this.checkedHandler}/>
+                <div className="to-do-lists">
+                    <TasksList tasks={tasks} loader={loader} onDelete={this.deleteHandler} onChecked={this.checkedHandler}/>
+                </div>
                 <AddTask openModal={openModal} openModalHandler={this.openModalHandler}/>
                 {openModal &&
                 <ModalDialog value={taskName}

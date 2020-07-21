@@ -1,5 +1,4 @@
 import React from "react";
-import "../../App.css"
 import Clock from "../main/Clock/Clock";
 
 export default class Header extends React.Component {
